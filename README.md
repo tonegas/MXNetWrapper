@@ -10,13 +10,19 @@ MXNet wrapper c++ for loading your network
 The class is a simple Wrapper of c_predict_api
 It makes easy to load end execute a custom network.
 
-# Example of use
-In this example there is an error but I'm struggling to find it!
+# Example of use src/main.cpp
+The example is in the src/main.cpp file.
 The example shows a problem of loading a network created by Mathematica.
-The network created by mathematica is a simple linear layer with bias.
+
+To be confident that my loading wrapper works I have tried to load  Inception-BN network,
+and it runs perfectly.
+
+Then I load my simple graph, that is a network created by mathematica with is a simple linear layer with bias.
 
 output = W * input + b
 
 The dimensions are W two rows a 3 column, b two column, input is 3 column and the output is 2 column.
 
-# I'm looking for Help
+My network has an error but I'm struggling to find it!
+I don't know if the problem is in the export or in the configuratiton of the network.
+<b>So I hope that some one can help me!</b>
