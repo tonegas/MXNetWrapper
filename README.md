@@ -24,5 +24,7 @@ output = W * input + b
 The dimensions are W two rows a 3 column, b two column, input is 3 column and the output is 2 column.
 
 My network has an error but I'm struggling to find it!
+
+I know that my code have an error because the output of the graph is not always the same.
 I don't know if the problem is in the export or in the configuratiton of the network.
 <b>So I hope that some one can help me!</b>
