@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"op":"null","name":"Input","attr":{},"inputs":[]},
+		{"op":"null","name":".Nodes.1.Arrays.Weights","attr":{},"inputs":[]},
+		{"op":"null","name":".Nodes.1.Arrays.Biases","attr":{},"inputs":[]},
+		{"op":"FullyConnected","name":".Nodes.1","attr":{"num_hidden":"4","no_bias":"False"},"inputs":[[0,0,0],[1,0,0],[2,0,0]]},
+		{"op":"tanh","name":".Nodes.2$0","attr":{},"inputs":[[3,0,0]]},
+		{"op":"null","name":".Nodes.3.Arrays.Weights","attr":{},"inputs":[]},
+		{"op":"null","name":".Nodes.3.Arrays.Biases","attr":{},"inputs":[]},
+		{"op":"FullyConnected","name":".Nodes.3","attr":{"num_hidden":"1","no_bias":"False"},"inputs":[[4,0,0],[5,0,0],[6,0,0]]}
+	],
+	"arg_nodes":[0,1,2,5,6],
+	"heads":[
+		[7,0,0]
+	],
+	"attrs":{
+		"mxnet_version":["int",905]
+	}
+}
