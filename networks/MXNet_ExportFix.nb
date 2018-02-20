@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     17716,        431]
-NotebookOptionsPosition[     16880,        410]
-NotebookOutlinePosition[     17248,        426]
-CellTagsIndexPosition[     17205,        423]
+NotebookDataLength[     16998,        412]
+NotebookOptionsPosition[     16255,        392]
+NotebookOutlinePosition[     16623,        408]
+CellTagsIndexPosition[     16580,        405]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -143,30 +143,6 @@ Cell[BoxData[
  CellChangeTimes->{{3.722974263000224*^9, 
   3.7229742897436857`*^9}},ExpressionUUID->"ca16969d-11a0-45be-b894-\
 1af57a24b9f4"],
-
-Cell[BoxData[
- TemplateBox[{
-  "NotebookDirectory","nosv",
-   "\"The notebook \
-\\!\\(\\*TemplateBox[List[FrontEndObject[LinkObject[\\\"564iz_shm\\\", 3, \
-1]], 21, \\\"FrontEndObject[LinkObject[\\\\\\\"564iz_shm\\\\\\\", 3, 1]]\\\", \
-\\\"21\\\", \\\"\\\\\\\"Untitled-1\\\\\\\"\\\"], \
-\\\"NotebookObjectUnsaved\\\"]\\) is not saved.\"",2,1,1,15966888537105834417,
-   "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{
-  3.7229725523231287`*^9},ExpressionUUID->"6f868be7-5a8d-4a27-995d-\
-94bb697705c7"],
-
-Cell[BoxData[
- TemplateBox[{
-  "SetDirectory","fstr",
-   "\"File specification \\!\\(\\*RowBox[{\\\"$Failed\\\"}]\\) is not a \
-string of one or more characters.\"",2,1,2,15966888537105834417,"Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{
-  3.7229725523240213`*^9},ExpressionUUID->"c9a8bba4-9b2f-4205-b8d9-\
-eb42e876b8d8"],
 
 Cell[BoxData[
  StyleBox[
@@ -394,18 +370,24 @@ Cell[BoxData[
     False],
    Deploy],
   LineBreakWithin->False]], "Output",
- CellChangeTimes->{
-  3.72297258633536*^9},ExpressionUUID->"8b50569d-8b53-4ddc-af4b-7191189f9be2"],
+ CellChangeTimes->{3.72297258633536*^9, 
+  3.728122559189065*^9},ExpressionUUID->"fe4db337-92aa-4a45-a3d9-\
+ec05942c1b67"],
+
+Cell[BoxData["\<\"MathematicaNet_Wrong.json\"\>"], "Output",
+ CellChangeTimes->{3.72297258633536*^9, 
+  3.728122560641024*^9},ExpressionUUID->"3c613526-2ab6-4bd8-88c6-\
+cba7f71d389b"],
 
 Cell[BoxData["\<\"MathematicaNet-symbol.json\"\>"], "Output",
- CellChangeTimes->{
-  3.7229725877571898`*^9},ExpressionUUID->"f88491a2-2f3f-476c-b421-\
-2f7ee340d091"],
+ CellChangeTimes->{3.72297258633536*^9, 
+  3.728122560652708*^9},ExpressionUUID->"ccc91933-eae0-4cdf-9d33-\
+ef4fce2b152f"],
 
 Cell[BoxData["\<\"MathematicaNet-0000.params\"\>"], "Output",
- CellChangeTimes->{
-  3.722972587771287*^9},ExpressionUUID->"8d722081-d4ed-482f-a477-\
-3c72d09286e8"]
+ CellChangeTimes->{3.72297258633536*^9, 
+  3.728122560653386*^9},ExpressionUUID->"9948748a-5547-48b6-9115-\
+86a22122a675"]
 }, Open  ]]
 },
 WindowSize->{3706, 2049},
@@ -426,12 +408,11 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 4471, 122, 1098, "Input",ExpressionUUID->"ca16969d-11a0-45be-b894-1af57a24b9f4"],
-Cell[5054, 146, 523, 12, 68, "Message",ExpressionUUID->"6f868be7-5a8d-4a27-995d-94bb697705c7"],
-Cell[5580, 160, 346, 8, 45, "Message",ExpressionUUID->"c9a8bba4-9b2f-4205-b8d9-eb42e876b8d8"],
-Cell[5929, 170, 10601, 227, 225, "Output",ExpressionUUID->"8b50569d-8b53-4ddc-af4b-7191189f9be2"],
-Cell[16533, 399, 165, 3, 71, "Output",ExpressionUUID->"f88491a2-2f3f-476c-b421-2f7ee340d091"],
-Cell[16701, 404, 163, 3, 71, "Output",ExpressionUUID->"8d722081-d4ed-482f-a477-3c72d09286e8"]
+Cell[580, 22, 4471, 122, 1129, "Input",ExpressionUUID->"ca16969d-11a0-45be-b894-1af57a24b9f4"],
+Cell[5054, 146, 10625, 228, 256, "Output",ExpressionUUID->"fe4db337-92aa-4a45-a3d9-ec05942c1b67"],
+Cell[15682, 376, 183, 3, 102, "Output",ExpressionUUID->"3c613526-2ab6-4bd8-88c6-cba7f71d389b"],
+Cell[15868, 381, 184, 3, 102, "Output",ExpressionUUID->"ccc91933-eae0-4cdf-9d33-ef4fce2b152f"],
+Cell[16055, 386, 184, 3, 102, "Output",ExpressionUUID->"9948748a-5547-48b6-9115-86a22122a675"]
 }, Open  ]]
 }
 ]
