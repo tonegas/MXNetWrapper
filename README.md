@@ -14,7 +14,7 @@ It makes easy to load end execute a custom network.
 The example is in the src/main.cpp file.
 The example shows a problem of loading a network created and exported by Mathematica.
 
-<b>The problem is due to Mathematica bug in Export the network file in the MXNet standard.</b>
-The files exported from Mathematica 11.2 are not totally compliant with the standard MXNet.
+# Export networks using Mathematica
+Due to a bug in the Mathematica export, the network files in the MXNet standard are not totally compliant with the standard MXNet.
 To avoid problems both in python or in c++ to load a network generated in Mathematica
 you must use the code reported in networks/MXNet_ExportFix.nb in the repository.
