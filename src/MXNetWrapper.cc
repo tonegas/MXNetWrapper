@@ -1,3 +1,4 @@
+#include <mxnet/c_predict_api.h>
 #include <iostream>
 #include <fstream>
 #include <assert.h>
@@ -55,7 +56,8 @@ BufferFile::~BufferFile()
 
 //-------------------------------------Network class-----------------------------------------
 MXNetWrapper::MXNetWrapper(
-    std::string net_name_str, const char* input_key[],
+    std::string net_name_str,
+    const char* input_key[],
     const mx_uint input_shape_indptr[],
     const mx_uint input_shape_data[]):
     dev_type(1),
@@ -63,7 +65,7 @@ MXNetWrapper::MXNetWrapper(
     num_input_nodes(1),
     net(0)
 {
-    input_keys = input_key;
+    //input_keys = input_key;
 
     json_file = net_name_str+".json";
     param_file = net_name_str+".params";
@@ -78,7 +80,7 @@ MXNetWrapper::MXNetWrapper(
                  dev_type,
                  dev_id,
                  num_input_nodes,
-                 input_keys,
+                 input_key,
                  input_shape_indptr,
                  input_shape_data,
                  &net);
@@ -86,7 +88,7 @@ MXNetWrapper::MXNetWrapper(
     D(std::cout << "Network Created: " << net_name_str << "\n";)
 }
 
-void MXNetWrapper::fordward(std::vector<mx_float> input)
+std::vector<mx_float> MXNetWrapper::fordward(std::vector<mx_float> input)
 {
     D(
         float* r = input.data();
@@ -98,7 +100,7 @@ void MXNetWrapper::fordward(std::vector<mx_float> input)
     )
     // Set Input
 //            std::vector<mx_float> inputT = {1.2,2.0,3.1};
-    MXPredSetInput(net, input_keys[0], input.data(), input.size());
+    MXPredSetInput(net, "Input", input.data(), input.size());
 
     // Do Predict Forward
     MXPredForward(net);
@@ -133,6 +135,7 @@ void MXNetWrapper::fordward(std::vector<mx_float> input)
             }
             cout << "]\n";
     )
+    return out_vett;
 }
 
 void MXNetWrapper::free()
