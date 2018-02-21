@@ -30,7 +30,9 @@ MXNET_INCLUDE_DIR = $(MXNET_DIR)/include/
 MXNET_LIB = $(MXNET_DIR)/lib/libmxnet.so
 
 # Network loader files
-NETWORK_SRCS = MXNetWrapper.cc
+MXWRAPPER_DIR = src
+MXWRAPPER_SRCS = $(MXWRAPPER_DIR)/MXNetWrapper.cc
+MXWRAPPER_H = $(MXWRAPPER_DIR)/MXNetWrapper.h
 
 # Define the compiler to use
 CC = clang++
@@ -48,7 +50,7 @@ CFLAGS = -std=c++11 -O2 -DNOT_INLINED=1 -DUSE_CODRIVER=1
 LFLAGS = -L$(MXNET_LIB)
 
 # Output directory
-OUTPUT_DIR = ../bin
+TEST_DIR = test
 
 # LINKER flags
 ifeq ($(OS), Darwin)
@@ -65,10 +67,10 @@ LIBS = -llm
 endif
 
 # Define any directories containing header files other than /usr/include
-INCLUDES = -I$(MXNET_INCLUDE_DIR)
+INCLUDES = -I$(MXNET_INCLUDE_DIR) -I$(MXWRAPPER_DIR)
 
 # Define the source files
-SRCS =  $(NETWORK_SRCS)
+SRCS =  $(MXWRAPPER_SRCS)
 
 # Define the object files
 OBJS = $(SRCS:.cc=.o)
@@ -80,10 +82,10 @@ all: $(OBJS)
 #    cd $(CURRENT_DIR)
 
 test: $(OBJS)
-	$(CC) $(ARCHFLAGS) $(CFLAGS) $(LDFLAGS) $(INCLUDES) $(ENABLE_DEBUG) main.cpp -o $(OUTPUT_DIR)/test $(OUTPUT_DIR)/$(OBJS) $(LFLAGS) $(MXNET_LIB)
+	$(CC) $(ARCHFLAGS) $(CFLAGS) $(LDFLAGS) $(INCLUDES) $(ENABLE_DEBUG) $(TEST_DIR)/main.cpp -o $(TEST_DIR)/test $(OBJS) $(LFLAGS) $(MXNET_LIB)
 
 .cc.o:
-	$(CC) $(ARCHFLAGS) $(CFLAGS) $(LDFLAGS) $(INCLUDES) $(ENABLE_DEBUG) -c $<  -o $(OUTPUT_DIR)/$@
+	$(CC) $(ARCHFLAGS) $(CFLAGS) $(LDFLAGS) $(INCLUDES) $(ENABLE_DEBUG) -c $<  -o $@
 
 clean:
-	$(RM) $(OUTPUT_DIR)/$(OBJS) $(OUTPUT_DIR)/test
+	$(RM) $(OBJS) $(TEST_DIR)/test
