@@ -25,7 +25,7 @@ $(info ================================================================)
 ENABLE_DEBUG = -DDEBUG=1
 
 # MXNet
-MXNET_DIR = ../../incubator-mxnet
+MXNET_DIR = incubator-mxnet
 MXNET_INCLUDE_DIR = $(MXNET_DIR)/include/
 MXNET_LIB = $(MXNET_DIR)/lib/libmxnet.so
 
