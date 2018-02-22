@@ -34,6 +34,9 @@ MXWRAPPER_DIR = src
 MXWRAPPER_SRCS = $(MXWRAPPER_DIR)/MXNetWrapper.cc
 MXWRAPPER_H = $(MXWRAPPER_DIR)/MXNetWrapper.h
 
+#Commands
+CD = cd
+
 # Define the compiler to use
 CC = clang++
 
@@ -77,9 +80,8 @@ OBJS = $(SRCS:.cc=.o)
 
 all: $(OBJS)
 
-#network:
-#    cd $(NETWORK_LOADER_DIR); make all
-#    cd $(CURRENT_DIR)
+mxnet:
+	$(CD) $(MXNET_DIR); make -j $(nproc) USE_OPENCV=0
 
 test: $(OBJS)
 	$(CC) $(ARCHFLAGS) $(CFLAGS) $(LDFLAGS) $(INCLUDES) $(ENABLE_DEBUG) $(TEST_DIR)/main.cpp -o $(TEST_DIR)/test $(OBJS) $(LFLAGS) $(MXNET_LIB)
