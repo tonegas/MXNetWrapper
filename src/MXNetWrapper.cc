@@ -67,8 +67,8 @@ MXNetWrapper::MXNetWrapper(
 {
     //input_keys = input_key;
 
-    json_file = net_name_str+".json";
-    param_file = net_name_str+".params";
+    json_file = net_name_str+"-symbol.json";
+    param_file = net_name_str+"-0000.params";
 
     BufferFile json_data(json_file);
     BufferFile param_data(param_file);
@@ -105,26 +105,13 @@ std::vector<mx_float> MXNetWrapper::fordward(std::vector<mx_float> input)
     // Do Predict Forward
     MXPredForward(net);
 
-    // Get Output
+    // Get Output Result Dimensions
     mx_uint output_index = 0;
     mx_uint *shape = 0;
     mx_uint shape_len;
-
-    // Get Output Result Dimensions
-    MXPredGetOutputShape(net, output_index, &shape, &shape_len);
-    D(
-        cout << "Output index: " << output_index << "\n";
-        cout << "Shape len of the output: " << shape_len << '\n';
-        cout << "Shape dim: [" << shape[0];
-        for (int i = 1; i < shape_len; ++i){
-            cout << ',' << shape[i];
-        }
-        cout << "]\n";
-    )
+    mx_uint size = getOutDim(output_index, shape, &shape_len);
 
     // Create the output data vector
-    size_t size = 1;
-    for (mx_uint i = 0; i < shape_len; ++i) size *= shape[i];
     std::vector<mx_float> out_vett(size);
     MXPredGetOutput(net, output_index, &(out_vett[0]), size);
     D(
@@ -136,6 +123,22 @@ std::vector<mx_float> MXNetWrapper::fordward(std::vector<mx_float> input)
             cout << "]\n";
     )
     return out_vett;
+}
+
+mx_uint MXNetWrapper::getOutDim(mx_uint output_index, mx_uint *&shape, mx_uint *shape_len){
+    MXPredGetOutputShape(net, output_index, &shape, shape_len);
+    D(
+        cout << "Output index: " << output_index << "\n";
+        cout << "Shape len of the output: " << *shape_len << '\n';
+        cout << "Shape dim: [" << shape[0];
+        for (int i = 1; i < *shape_len; ++i){
+            cout << ',' << shape[i];
+        }
+        cout << "]\n";
+    )
+    mx_uint size = 1;
+    for (mx_uint i = 0; i < *shape_len; ++i) size *= shape[i];
+    return size;
 }
 
 void MXNetWrapper::free()

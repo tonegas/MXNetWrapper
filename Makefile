@@ -47,7 +47,7 @@ ARCHFLAGS =
 endif
 
 # Define any compile-time flags
-CFLAGS = -std=c++11 -O2 -DNOT_INLINED=1 -DUSE_CODRIVER=1
+CFLAGS = -std=c++11 -O2 -DNOT_INLINED=1 -DUSE_CODRIVER=1 
 
 # Define library paths in addition to /usr/lib
 LFLAGS = -L$(MXNET_LIB)

@@ -43,6 +43,8 @@ namespace net_classes {
 
         std::vector<mx_float> fordward(std::vector<mx_float> input);
 
+        mx_uint getOutDim(mx_uint output_index, mx_uint *&shape, mx_uint *shape_len);
+
         void free();
 
     };
