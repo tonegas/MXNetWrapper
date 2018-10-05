@@ -81,7 +81,7 @@ OBJS = $(SRCS:.cc=.o)
 all: $(OBJS)
 
 mxnet:
-	$(CD) $(MXNET_DIR); make -j $(nproc) USE_OPENCV=0
+	$(CD) $(MXNET_DIR); make USE_OPENCV=0
 
 test: $(OBJS)
 	$(CC) $(ARCHFLAGS) $(CFLAGS) $(LDFLAGS) $(INCLUDES) $(ENABLE_DEBUG) $(TEST_DIR)/main.cpp -o $(TEST_DIR)/test $(OBJS) $(LFLAGS) $(MXNET_LIB)
