@@ -1,0 +1,28 @@
+{
+	"nodes":[
+		{"op":"null","name":"brake","attr":{},"inputs":[]},
+		{"op":"null","name":"throttle","attr":{},"inputs":[]},
+		{"op":"Dropout","name":".Nodes.brIn$0","attr":{"p":"0.1e-1"},"inputs":[[0,0,0]]},
+		{"op":"null","name":".Nodes.brW1.Arrays.Weights","attr":{},"inputs":[]},
+		{"op":"null","name":".Nodes.brW1.Arrays.Biases","attr":{},"inputs":[]},
+		{"op":"FullyConnected","name":".Nodes.brW1","attr":{"num_hidden":"1","no_bias":"False"},"inputs":[[2,0,0],[3,0,0],[4,0,0]]},
+		{"op":"relu","name":".Nodes.brOut$0","attr":{},"inputs":[[5,0,0]]},
+		{"op":"Dropout","name":".Nodes.trIn$0","attr":{"p":"0.1e-1"},"inputs":[[1,0,0]]},
+		{"op":"null","name":".Nodes.trW1.Arrays.Weights","attr":{},"inputs":[]},
+		{"op":"null","name":".Nodes.trW1.Arrays.Biases","attr":{},"inputs":[]},
+		{"op":"FullyConnected","name":".Nodes.trW1","attr":{"num_hidden":"1","no_bias":"False"},"inputs":[[7,0,0],[8,0,0],[9,0,0]]},
+		{"op":"relu","name":".Nodes.trOut$0","attr":{},"inputs":[[10,0,0]]},
+		{"op":"_Plus","name":".Nodes.out$0","attr":{},"inputs":[[6,0,0],[11,0,0]]},
+		{"op":"null","name":".Nodes.OutW.Arrays.Weights","attr":{},"inputs":[]},
+		{"op":"null","name":".Nodes.OutW.Arrays.Biases","attr":{},"inputs":[]},
+		{"op":"FullyConnected","name":".Nodes.OutW","attr":{"num_hidden":"1","no_bias":"False"},"inputs":[[12,0,0],[13,0,0],[14,0,0]]}
+	],
+	"arg_nodes":[0,1,3,4,8,9,13,14],
+	"heads":[
+		[12,0,0],
+		[15,0,0]
+	],
+	"attrs":{
+		"mxnet_version":["int",905]
+	}
+}
