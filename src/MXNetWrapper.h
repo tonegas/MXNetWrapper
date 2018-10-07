@@ -29,7 +29,7 @@ namespace net_classes {
         int dev_type;  // 1: cpu, 2: gpu
         int dev_id;  // arbitrary.
         mx_uint num_input_nodes;  // 1 for feedforward
-        //const char** input_keys;
+        const char** input_keys;
 
         // Files of params and structure
         std::string json_file;
@@ -39,9 +39,9 @@ namespace net_classes {
         PredictorHandle net;
 
     public:
-        MXNetWrapper(std::string net_name_str, const char* input_key[], const mx_uint input_shape_indptr[], const mx_uint input_shape_data[]);
+        MXNetWrapper(std::string net_name_str, mx_uint num_input_nodes_in, const char* input_key_in[], const mx_uint input_shape_indptr[], const mx_uint input_shape_data[]);
 
-        std::vector<mx_float> fordward(std::vector<mx_float> input);
+        std::vector<mx_float> fordward(std::vector<std::vector<mx_float>> input, mx_uint output_index = 0);
 
         mx_uint getOutDim(mx_uint output_index, mx_uint *&shape, mx_uint *shape_len);
 

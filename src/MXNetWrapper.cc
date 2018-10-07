@@ -57,15 +57,16 @@ BufferFile::~BufferFile()
 //-------------------------------------Network class-----------------------------------------
 MXNetWrapper::MXNetWrapper(
     std::string net_name_str,
-    const char* input_key[],
+    mx_uint num_input_nodes_in,
+    const char* input_keys_in[],
     const mx_uint input_shape_indptr[],
     const mx_uint input_shape_data[]):
     dev_type(1),
     dev_id(0),
-    num_input_nodes(1),
     net(0)
 {
-    //input_keys = input_key;
+    input_keys = input_keys_in;
+    num_input_nodes = num_input_nodes_in;
 
     json_file = net_name_str+"-symbol.json";
     param_file = net_name_str+"-0000.params";
@@ -80,7 +81,7 @@ MXNetWrapper::MXNetWrapper(
                  dev_type,
                  dev_id,
                  num_input_nodes,
-                 input_key,
+                 input_keys,
                  input_shape_indptr,
                  input_shape_data,
                  &net);
@@ -88,25 +89,26 @@ MXNetWrapper::MXNetWrapper(
     D(std::cout << "Network Created: " << net_name_str << "\n";)
 }
 
-std::vector<mx_float> MXNetWrapper::fordward(std::vector<mx_float> input)
+std::vector<mx_float> MXNetWrapper::fordward(std::vector<std::vector<mx_float>> input, mx_uint output_index)
 {
-    D(
-        float* r = input.data();
-        cout << "Data(" << input.size() << "): [" << r[0];
-        for(int i=1; i<input.size(); i++) {
-            cout  << ',' << r[i];
-        }
-        cout << "]\n";
-    )
     // Set Input
 //            std::vector<mx_float> inputT = {1.2,2.0,3.1};
-    MXPredSetInput(net, "Input", input.data(), input.size());
+    for (int i = 0; i < num_input_nodes ;i++){
+        D(
+            float* r = input[i].data();
+            cout << "Input " << i << " data(" << input[i].size() << "): [" << r[0];
+            for(int i = 1; i < input[i].size(); i++) {
+                cout  << ',' << r[i];
+            }
+            cout << "]\n";
+        )
+        MXPredSetInput(net, input_keys[i], input[i].data(), input[i].size());
+    }
 
     // Do Predict Forward
     MXPredForward(net);
 
     // Get Output Result Dimensions
-    mx_uint output_index = 0;
     mx_uint *shape = 0;
     mx_uint shape_len;
     mx_uint size = getOutDim(output_index, shape, &shape_len);
@@ -126,8 +128,9 @@ std::vector<mx_float> MXNetWrapper::fordward(std::vector<mx_float> input)
 }
 
 mx_uint MXNetWrapper::getOutDim(mx_uint output_index, mx_uint *&shape, mx_uint *shape_len){
-    MXPredGetOutputShape(net, output_index, &shape, shape_len);
+    int out = MXPredGetOutputShape(net, output_index, &shape, shape_len);
     D(
+        cout << "Success:" << out << "\n";
         cout << "Output index: " << output_index << "\n";
         cout << "Shape len of the output: " << *shape_len << '\n';
         cout << "Shape dim: [" << shape[0];
