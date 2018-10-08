@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"op":"null","name":"myIn","attr":{},"inputs":[]},
+		{"op":"Dropout","name":".Nodes.In$0","attr":{"p":"0.1e-1"},"inputs":[[0,0,0]]},
+		{"op":"null","name":".Nodes.W.Arrays.Weights","attr":{},"inputs":[]},
+		{"op":"null","name":".Nodes.W.Arrays.Biases","attr":{},"inputs":[]},
+		{"op":"FullyConnected","name":".Nodes.W","attr":{"num_hidden":"1","no_bias":"False"},"inputs":[[1,0,0],[2,0,0],[3,0,0]]},
+		{"op":"relu","name":".Nodes.Out$0","attr":{},"inputs":[[4,0,0]]}
+	],
+	"arg_nodes":[0,2,3],
+	"heads":[
+		[5,0,0]
+	],
+	"attrs":{
+		"mxnet_version":["int",905]
+	}
+}

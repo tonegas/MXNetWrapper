@@ -28,6 +28,10 @@ ENABLE_DEBUG = -DDEBUG=1
 MXNET_DIR = incubator-mxnet
 MXNET_INCLUDE_DIR = $(MXNET_DIR)/include/
 MXNET_LIB = $(MXNET_DIR)/lib/libmxnet.so
+# PYTHON MXNet
+#MXNET_DIR = incubator-mxnet
+#MXNET_INCLUDE_DIR = $(MXNET_DIR)/include/
+#MXNET_LIB = src/libmxnet.so
 
 # Network loader files
 MXWRAPPER_DIR = src

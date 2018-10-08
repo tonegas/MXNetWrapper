@@ -1,0 +1,661 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     27872,        653]
+NotebookOptionsPosition[     25620,        604]
+NotebookOutlinePosition[     25990,        620]
+CellTagsIndexPosition[     25947,        617]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Work Folder", "Chapter",
+ CellChangeTimes->{
+  3.748002826689283*^9},ExpressionUUID->"23bf6df9-5dbc-4d87-a7c3-\
+842560117eef"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Import", "[", 
+  RowBox[{"\"\<MXNetExport-\>\"", "<>", 
+   RowBox[{"ToString", "[", "$VersionNumber", "]"}], "<>", "\"\<.wl\>\""}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.747910598912767*^9, 3.7479106228116627`*^9}, {
+  3.748002774279283*^9, 3.7480028282702227`*^9}, {3.748019843071159*^9, 
+  3.748019843269252*^9}, {3.74801992395708*^9, 3.748019934269596*^9}, {
+  3.748020015360838*^9, 
+  3.748020023960527*^9}},ExpressionUUID->"7f264ccd-6af5-4524-92b6-\
+06c9f762a2cd"],
+
+Cell[BoxData["\<\"/home/tonegas/Work/Dreams4Cars/repositories/MXNetWrapper/\
+networks\"\>"], "Output",
+ CellChangeTimes->{
+  3.748020024638546*^9},ExpressionUUID->"95c65ffd-3548-46bb-b206-\
+e9e87cd11058"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Create Networks", "Chapter",
+ CellChangeTimes->{{3.748002834401099*^9, 3.748002850693928*^9}, {
+   3.74800292617108*^9, 3.7480029270208178`*^9}, 
+   3.7480031345997143`*^9},ExpressionUUID->"93db69b2-4f85-45fd-81ef-\
+115bafe567d0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Clear", "@", "net1"}], "\[IndentingNewLine]", 
+ RowBox[{"net1", "=", 
+  RowBox[{"NetGraph", "[", 
+   RowBox[{
+    RowBox[{"<|", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"\"\<In\>\"", "\[Rule]", " ", 
+       RowBox[{"DropoutLayer", "[", "0.01", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<W\>\"", "\[Rule]", " ", 
+       RowBox[{"NetInitialize", "@", 
+        RowBox[{"LinearLayer", "[", 
+         RowBox[{"1", ",", 
+          RowBox[{"\"\<Input\>\"", "\[Rule]", "5"}], ",", 
+          RowBox[{"\"\<Weights\>\"", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"Table", "[", 
+             RowBox[{"0.01", ",", 
+              RowBox[{"{", "5", "}"}]}], "]"}], "}"}]}], ",", 
+          RowBox[{"\"\<Biases\>\"", "\[Rule]", 
+           RowBox[{"{", "0.1", "}"}]}]}], "]"}]}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<Out\>\"", "\[Rule]", " ", "Ramp"}]}], 
+     "\[IndentingNewLine]", "|>"}], ",", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"NetPort", "[", "\"\<myIn\>\"", "]"}], "\[Rule]", 
+      RowBox[{"\"\<In\>\"", "\[Rule]", " ", 
+       RowBox[{"\"\<W\>\"", "\[Rule]", " ", 
+        RowBox[{"\"\<Out\>\"", "\[Rule]", "  ", 
+         RowBox[{"NetPort", "[", "\"\<myOut\>\"", "]"}]}]}]}]}], 
+     "\[IndentingNewLine]", "}"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.747912067980342*^9, 3.747912098387107*^9}, {
+  3.7480026543906193`*^9, 3.7480026825122957`*^9}, {3.74800292358071*^9, 
+  3.748002929308662*^9}, {3.7480034109011517`*^9, 
+  3.74800341558221*^9}},ExpressionUUID->"7de80479-82aa-42b9-9f44-\
+979d430f65ad"],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[
+   TagBox[
+    RowBox[{"NetGraph", 
+     RowBox[{"[", 
+      PanelBox[
+       DynamicModuleBox[{NeuralNetworks`Private`NetGraph`selection = None}, 
+        DynamicBox[GridBox[
+          Map[List, {
+            ToBoxes[
+             
+             NeuralNetworks`Private`NetGraph`netLayerPlot[{{1, 2}, {2, 3}, {3,
+               4}, {4, 5}}, 
+              Dynamic[NeuralNetworks`Private`NetGraph`selection], False, {
+              "myIn", "In", "W", "Out", "myOut"}, {Null, 
+               RGBColor[0.96, 0.15999999999999992`, 0.15999999999999992`], 
+               GrayLevel[0.4], 
+               RGBColor[0.29, 0.29, 0.83]}, {1, 2, 3, 4, 1}, {
+              Null, DropoutLayer, LinearLayer, Ramp}, {
+               NeuralNetworks`TensorT[{5}, NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{5}, NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]}, None]], 
+            If[
+             IntegerQ[NeuralNetworks`Private`NetGraph`selection], 
+             ItemBox[
+              NeuralNetworks`Private`NetGraph`vpathInfo[
+               Part[{
+                 NeuralNetworks`NetPath["Inputs", "myIn"], 
+                 NeuralNetworks`NetPath["Nodes", "In"], 
+                 NeuralNetworks`NetPath["Nodes", "W"], 
+                 NeuralNetworks`NetPath["Nodes", "Out"], 
+                 NeuralNetworks`NetPath["Outputs", "myOut"]}, 
+                NeuralNetworks`Private`NetGraph`selection], 
+               Association[
+               "myIn" -> NeuralNetworks`TensorT[{5}, NeuralNetworks`RealT]], 
+               Association[
+               "myOut" -> NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]], 
+               
+               Association[
+               "In" -> Association[
+                 "Type" -> "Dropout", "Arrays" -> Association[], "Parameters" -> 
+                  Association[
+                   "DropoutProbability" -> 0.01, "Method" -> "Dropout"], 
+                  "Inputs" -> 
+                  Association[
+                   "Input" -> 
+                    NeuralNetworks`TensorT[{5}, NeuralNetworks`RealT]], 
+                  "Outputs" -> 
+                  Association[
+                   "Output" -> 
+                    NeuralNetworks`TensorT[{5}, NeuralNetworks`RealT]]], "W" -> 
+                Association[
+                 "Type" -> "Linear", "Arrays" -> 
+                  Association[
+                   "Weights" -> NeuralNetworks`Private`DummyRawArray[{1, 5}], 
+                    "Biases" -> NeuralNetworks`Private`DummyRawArray[{1}]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputDimensions" -> {1}, "$OutputSize" -> 1, 
+                    "$InputSize" -> 5, "$InputDimensions" -> {5}], "Inputs" -> 
+                  Association[
+                   "Input" -> 
+                    NeuralNetworks`TensorT[{5}, NeuralNetworks`RealT]], 
+                  "Outputs" -> 
+                  Association[
+                   "Output" -> 
+                    NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]]], 
+                "Out" -> Association[
+                 "Type" -> "Elementwise", "Arrays" -> Association[], 
+                  "Parameters" -> 
+                  Association[
+                   "Function" -> NeuralNetworks`ValidatedParameter[Ramp], 
+                    "$Dimensions" -> {1}], "Inputs" -> 
+                  Association[
+                   "Input" -> 
+                    NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]], 
+                  "Outputs" -> 
+                  Association[
+                   "Output" -> 
+                    NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]]]]], 
+              Alignment -> Center], Nothing]}], 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}],
+         ImageSizeCache->{584., {83.5, 92.5}},
+         TrackedSymbols:>{NeuralNetworks`Private`NetGraph`selection}],
+        Initialization:>{NetGraph}],
+       BaselinePosition->(Top -> Scaled[3])], "]"}]}],
+    False],
+   Deploy],
+  LineBreakWithin->False]], "Output",
+ CellChangeTimes->{3.748003136836603*^9, 3.748003418781069*^9, 
+  3.748019645424735*^9, 
+  3.748019848312861*^9},ExpressionUUID->"f32d7a7a-bb9e-49ca-bebb-\
+62c28c9eb6aa"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Clear", "@", "net2"}], "\[IndentingNewLine]", 
+ RowBox[{"net2", "=", 
+  RowBox[{"NetGraph", "[", 
+   RowBox[{
+    RowBox[{"<|", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"\"\<In1\>\"", "\[Rule]", " ", 
+       RowBox[{"DropoutLayer", "[", "0.01", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<W1\>\"", "\[Rule]", " ", 
+       RowBox[{"NetInitialize", "@", 
+        RowBox[{"LinearLayer", "[", 
+         RowBox[{"1", ",", 
+          RowBox[{"\"\<Input\>\"", "\[Rule]", "4"}], ",", 
+          RowBox[{"\"\<Weights\>\"", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"Table", "[", 
+             RowBox[{"0.01", ",", 
+              RowBox[{"{", "4", "}"}]}], "]"}], "}"}]}], ",", 
+          RowBox[{"\"\<Biases\>\"", "\[Rule]", 
+           RowBox[{"{", "0.1", "}"}]}]}], "]"}]}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<Out1\>\"", "\[Rule]", " ", "Ramp"}], ",", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"\"\<In2\>\"", "\[Rule]", " ", 
+       RowBox[{"DropoutLayer", "[", "0.01", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<W2\>\"", "\[Rule]", 
+       RowBox[{"NetInitialize", "@", 
+        RowBox[{"LinearLayer", "[", 
+         RowBox[{"1", ",", 
+          RowBox[{"\"\<Input\>\"", "\[Rule]", " ", "4"}], ",", 
+          RowBox[{"\"\<Weights\>\"", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"Table", "[", 
+             RowBox[{"0.01", ",", 
+              RowBox[{"{", "4", "}"}]}], "]"}], "}"}]}], ",", 
+          RowBox[{"\"\<Biases\>\"", "\[Rule]", 
+           RowBox[{"{", "0.1", "}"}]}]}], "]"}]}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<Out2\>\"", "\[Rule]", " ", "Ramp"}], ",", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"\"\<Out\>\"", "\[Rule]", " ", 
+       RowBox[{"ThreadingLayer", "[", "Plus", "]"}]}], ",", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"\"\<OutW\>\"", "\[Rule]", 
+       RowBox[{"NetInitialize", "@", 
+        RowBox[{"LinearLayer", "[", 
+         RowBox[{"1", ",", 
+          RowBox[{"\"\<Input\>\"", "\[Rule]", "1"}], ",", 
+          RowBox[{"\"\<Weights\>\"", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"{", "0.1", "}"}], "}"}]}], ",", 
+          RowBox[{"\"\<Biases\>\"", "\[Rule]", 
+           RowBox[{"{", "0.1", "}"}]}]}], "]"}]}]}]}], "\[IndentingNewLine]", 
+     "|>"}], ",", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"NetPort", "[", "\"\<myIn1\>\"", "]"}], " ", "\[Rule]", " ", 
+       RowBox[{"\"\<In1\>\"", "\[Rule]", 
+        RowBox[{"\"\<W1\>\"", "\[Rule]", "\"\<Out1\>\""}]}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"NetPort", "[", "\"\<myIn2\>\"", "]"}], "\[Rule]", 
+       RowBox[{"\"\<In2\>\"", "\[Rule]", " ", 
+        RowBox[{"\"\<W2\>\"", "\[Rule]", " ", "\"\<Out2\>\""}]}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<Out1\>\"", ",", "\"\<Out2\>\""}], "}"}], "\[Rule]", "  ", 
+       RowBox[{"\"\<Out\>\"", "\[Rule]", "  ", 
+        RowBox[{"NetPort", "[", "\"\<myOut1\>\"", "]"}]}]}], ",", 
+      "\[IndentingNewLine]", "  ", 
+      RowBox[{"\"\<Out\>\"", "\[Rule]", 
+       RowBox[{"\"\<OutW\>\"", "\[Rule]", "  ", 
+        RowBox[{"NetPort", "[", "\"\<myOut2\>\"", "]"}]}]}]}], 
+     "\[IndentingNewLine]", "}"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.748002920343479*^9, 3.7480029765007133`*^9}, {
+  3.7480030159571247`*^9, 3.748003155005134*^9}, {3.748003198196465*^9, 
+  3.748003207876055*^9}, {3.748003295043375*^9, 3.74800333330881*^9}, {
+  3.7480034005725813`*^9, 3.748003407193527*^9}, {3.748003448152649*^9, 
+  3.748003460696485*^9}},ExpressionUUID->"27112167-9d0b-461f-9f88-\
+2e9a9589b967"],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[
+   TagBox[
+    RowBox[{"NetGraph", 
+     RowBox[{"[", 
+      PanelBox[
+       DynamicModuleBox[{NeuralNetworks`Private`NetGraph`selection = None}, 
+        DynamicBox[GridBox[
+          Map[List, {
+            ToBoxes[
+             
+             NeuralNetworks`Private`NetGraph`netLayerPlot[{{1, 2}, {2, 3}, {3,
+               4}, {5, 6}, {6, 7}, {7, 8}, {4, 9}, {8, 9}, {9, 10}, {9, 11}, {
+              11, 12}}, 
+              Dynamic[NeuralNetworks`Private`NetGraph`selection], False, {
+              "myIn1", "In1", "W1", "Out1", "myIn2", "In2", "W2", "Out2", 
+               "Out", "myOut1", "OutW", "myOut2"}, {Null, 
+               RGBColor[0.96, 0.15999999999999992`, 0.15999999999999992`], 
+               GrayLevel[0.4], 
+               RGBColor[0.29, 0.29, 0.83], 
+               RGBColor[0.01, 0.54, 0.67]}, {1, 2, 3, 4, 1, 2, 3, 4, 5, 1, 3, 
+              1}, {Null, DropoutLayer, LinearLayer, Ramp, Plus}, {
+               NeuralNetworks`TensorT[{4}, NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{4}, NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{4}, NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{4}, NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]}, None]], 
+            If[
+             IntegerQ[NeuralNetworks`Private`NetGraph`selection], 
+             ItemBox[
+              NeuralNetworks`Private`NetGraph`vpathInfo[
+               Part[{
+                 NeuralNetworks`NetPath["Inputs", "myIn1"], 
+                 NeuralNetworks`NetPath["Nodes", "In1"], 
+                 NeuralNetworks`NetPath["Nodes", "W1"], 
+                 NeuralNetworks`NetPath["Nodes", "Out1"], 
+                 NeuralNetworks`NetPath["Inputs", "myIn2"], 
+                 NeuralNetworks`NetPath["Nodes", "In2"], 
+                 NeuralNetworks`NetPath["Nodes", "W2"], 
+                 NeuralNetworks`NetPath["Nodes", "Out2"], 
+                 NeuralNetworks`NetPath["Nodes", "Out"], 
+                 NeuralNetworks`NetPath["Outputs", "myOut1"], 
+                 NeuralNetworks`NetPath["Nodes", "OutW"], 
+                 NeuralNetworks`NetPath["Outputs", "myOut2"]}, 
+                NeuralNetworks`Private`NetGraph`selection], 
+               Association[
+               "myIn1" -> NeuralNetworks`TensorT[{4}, NeuralNetworks`RealT], 
+                "myIn2" -> NeuralNetworks`TensorT[{4}, NeuralNetworks`RealT]], 
+               Association[
+               "myOut1" -> NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT], 
+                "myOut2" -> 
+                NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]], 
+               Association[
+               "In1" -> Association[
+                 "Type" -> "Dropout", "Arrays" -> Association[], "Parameters" -> 
+                  Association[
+                   "DropoutProbability" -> 0.01, "Method" -> "Dropout"], 
+                  "Inputs" -> 
+                  Association[
+                   "Input" -> 
+                    NeuralNetworks`TensorT[{4}, NeuralNetworks`RealT]], 
+                  "Outputs" -> 
+                  Association[
+                   "Output" -> 
+                    NeuralNetworks`TensorT[{4}, NeuralNetworks`RealT]]], "W1" -> 
+                Association[
+                 "Type" -> "Linear", "Arrays" -> 
+                  Association[
+                   "Weights" -> NeuralNetworks`Private`DummyRawArray[{1, 4}], 
+                    "Biases" -> NeuralNetworks`Private`DummyRawArray[{1}]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputDimensions" -> {1}, "$OutputSize" -> 1, 
+                    "$InputSize" -> 4, "$InputDimensions" -> {4}], "Inputs" -> 
+                  Association[
+                   "Input" -> 
+                    NeuralNetworks`TensorT[{4}, NeuralNetworks`RealT]], 
+                  "Outputs" -> 
+                  Association[
+                   "Output" -> 
+                    NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]]], 
+                "Out1" -> Association[
+                 "Type" -> "Elementwise", "Arrays" -> Association[], 
+                  "Parameters" -> 
+                  Association[
+                   "Function" -> NeuralNetworks`ValidatedParameter[Ramp], 
+                    "$Dimensions" -> {1}], "Inputs" -> 
+                  Association[
+                   "Input" -> 
+                    NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]], 
+                  "Outputs" -> 
+                  Association[
+                   "Output" -> 
+                    NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]]], 
+                "In2" -> Association[
+                 "Type" -> "Dropout", "Arrays" -> Association[], "Parameters" -> 
+                  Association[
+                   "DropoutProbability" -> 0.01, "Method" -> "Dropout"], 
+                  "Inputs" -> 
+                  Association[
+                   "Input" -> 
+                    NeuralNetworks`TensorT[{4}, NeuralNetworks`RealT]], 
+                  "Outputs" -> 
+                  Association[
+                   "Output" -> 
+                    NeuralNetworks`TensorT[{4}, NeuralNetworks`RealT]]], "W2" -> 
+                Association[
+                 "Type" -> "Linear", "Arrays" -> 
+                  Association[
+                   "Weights" -> NeuralNetworks`Private`DummyRawArray[{1, 4}], 
+                    "Biases" -> NeuralNetworks`Private`DummyRawArray[{1}]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputDimensions" -> {1}, "$OutputSize" -> 1, 
+                    "$InputSize" -> 4, "$InputDimensions" -> {4}], "Inputs" -> 
+                  Association[
+                   "Input" -> 
+                    NeuralNetworks`TensorT[{4}, NeuralNetworks`RealT]], 
+                  "Outputs" -> 
+                  Association[
+                   "Output" -> 
+                    NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]]], 
+                "Out2" -> Association[
+                 "Type" -> "Elementwise", "Arrays" -> Association[], 
+                  "Parameters" -> 
+                  Association[
+                   "Function" -> NeuralNetworks`ValidatedParameter[Ramp], 
+                    "$Dimensions" -> {1}], "Inputs" -> 
+                  Association[
+                   "Input" -> 
+                    NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]], 
+                  "Outputs" -> 
+                  Association[
+                   "Output" -> 
+                    NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]]], 
+                "Out" -> Association[
+                 "Type" -> "Threading", "Arrays" -> Association[], 
+                  "Parameters" -> 
+                  Association[
+                   "Function" -> NeuralNetworks`ValidatedParameter[Plus], 
+                    "$Dimensions" -> {1}], "Inputs" -> Association["Input" -> {
+                    NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT], 
+                    NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]}], 
+                  "Outputs" -> 
+                  Association[
+                   "Output" -> 
+                    NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]]], 
+                "OutW" -> 
+                Association[
+                 "Type" -> "Linear", "Arrays" -> 
+                  Association[
+                   "Weights" -> NeuralNetworks`Private`DummyRawArray[{1, 1}], 
+                    "Biases" -> NeuralNetworks`Private`DummyRawArray[{1}]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputDimensions" -> {1}, "$OutputSize" -> 1, 
+                    "$InputSize" -> 1, "$InputDimensions" -> {1}], "Inputs" -> 
+                  Association[
+                   "Input" -> 
+                    NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]], 
+                  "Outputs" -> 
+                  Association[
+                   "Output" -> 
+                    NeuralNetworks`TensorT[{1}, NeuralNetworks`RealT]]]]], 
+              Alignment -> Center], Nothing]}], 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}],
+         ImageSizeCache->{852., {147.5, 156.5}},
+         TrackedSymbols:>{NeuralNetworks`Private`NetGraph`selection}],
+        Initialization:>{NetGraph}],
+       BaselinePosition->(Top -> Scaled[3])], "]"}]}],
+    False],
+   Deploy],
+  LineBreakWithin->False]], "Output",
+ CellChangeTimes->{{3.747912094707885*^9, 3.747912098866724*^9}, 
+   3.747924758846271*^9, 3.74793115256245*^9, 3.747991115306251*^9, 
+   3.7480026851017027`*^9, 3.7480027816249933`*^9, {3.7480031416179256`*^9, 
+   3.7480032086856403`*^9}, 3.748003333879023*^9, 3.748003421502593*^9, 
+   3.7480034716368027`*^9, 3.748019647514105*^9, 
+   3.748019850238435*^9},ExpressionUUID->"42db3b12-d2bd-461a-bab9-\
+bc304b0c3dba"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"net1", "[", 
+  RowBox[{"<|", 
+   RowBox[{"\"\<myIn\>\"", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "5"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "6"}], "}"}]}], 
+     "}"}]}], "|>"}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.747912112634555*^9, {3.747912374220265*^9, 3.7479123803056393`*^9}, {
+   3.7480026880650043`*^9, 3.748002689516244*^9}, 3.748003353249161*^9, {
+   3.748003425191537*^9, 
+   3.748003425705481*^9}},ExpressionUUID->"ba4d8133-5eb1-4120-8afc-\
+4257c98f0cf8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", "0.25`", "}"}], ",", 
+   RowBox[{"{", "0.25999999046325684`", "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.747912113623658*^9, 3.747912381209755*^9, 3.747924761228744*^9, 
+   3.747931161808755*^9, 3.747931876145143*^9, 3.747991118286602*^9, 
+   3.748002691577779*^9, 3.748002785014868*^9, {3.7480033397891006`*^9, 
+   3.748003357578697*^9}, 3.748003426165021*^9, 3.748019650489697*^9, 
+   3.748019853422989*^9},ExpressionUUID->"cb242326-b8fc-4db2-a548-\
+72d6a35af2d6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"net2", "[", 
+  RowBox[{"<|", 
+   RowBox[{
+    RowBox[{"\"\<myIn1\>\"", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}]}], ",", 
+    RowBox[{"\"\<myIn2\>\"", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}]}]}], "|>"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.748003363311741*^9, 3.748003382240295*^9}, {
+  3.748003429475362*^9, 3.7480034456864977`*^9}, {3.748003484308631*^9, 
+  3.748003488906171*^9}},ExpressionUUID->"19d707b5-75b5-424a-9aa3-\
+37ffb1de417a"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"myOut1\"\>", "\[Rule]", 
+    RowBox[{"{", "0.4000000059604645`", "}"}]}], ",", 
+   RowBox[{"\<\"myOut2\"\>", "\[Rule]", 
+    RowBox[{"{", "0.14000000059604645`", "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{
+  3.748003382748004*^9, {3.748003430433798*^9, 3.748003434375256*^9}, {
+   3.74800346859699*^9, 3.748003489416297*^9}, 3.748019652031592*^9, 
+   3.748019854901599*^9},ExpressionUUID->"1d76d466-4368-4c58-a3db-\
+cd732c9e5313"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Export Nets", "Chapter",
+ CellChangeTimes->{
+  3.748003378927185*^9, {3.748003493050099*^9, 
+   3.7480035151428432`*^9}},ExpressionUUID->"1d236d70-5b74-48d7-8339-\
+ecd9a278734f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"\"\<net1.Standard\>\"", "<>", 
+    RowBox[{"ToString", "[", "$VersionNumber", "]"}], "<>", 
+    "\"\<Export.json\>\""}], ",", "net1", ",", "\"\<MXNet\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"\"\<net2.Standard\>\"", "<>", 
+    RowBox[{"ToString", "[", "$VersionNumber", "]"}], "<>", 
+    "\"\<Export.json\>\""}], ",", "net2", ",", "\"\<MXNet\>\""}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"MXNetNetworkExport", "[", 
+  RowBox[{"net1", ",", 
+   RowBox[{"\"\<net1.Fixed\>\"", "<>", 
+    RowBox[{"ToString", "[", "$VersionNumber", "]"}], "<>", 
+    "\"\<Export\>\""}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"MXNetNetworkExport", "[", 
+  RowBox[{"net2", ",", 
+   RowBox[{"\"\<net2.Fixed\>\"", "<>", 
+    RowBox[{"ToString", "[", "$VersionNumber", "]"}], "<>", 
+    "\"\<Export\>\""}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.74793116547611*^9, 3.747931224198963*^9}, {
+  3.747931315962694*^9, 3.747931320329754*^9}, {3.7480196590703173`*^9, 
+  3.748019756309162*^9}, {3.7480198590917873`*^9, 3.748019863236224*^9}, {
+  3.7480200384635572`*^9, 
+  3.748020060431202*^9}},ExpressionUUID->"477ccd3f-f347-4495-a83e-\
+15fbf1622eec"],
+
+Cell[BoxData["\<\"net1.Standard11.2Export.json\"\>"], "Output",
+ CellChangeTimes->{3.748019773780196*^9, 3.748019864394644*^9, 
+  3.748020061555333*^9},ExpressionUUID->"465b8cb7-8c98-46ca-9824-\
+f82259b98757"],
+
+Cell[BoxData["\<\"net2.Standard11.2Export.json\"\>"], "Output",
+ CellChangeTimes->{3.748019773780196*^9, 3.748019864394644*^9, 
+  3.7480200615561543`*^9},ExpressionUUID->"b2da2882-2ccb-4a91-b023-\
+fcd7fd3a760c"],
+
+Cell[BoxData["\<\"net1.Fixed11.2Export-0000.params\"\>"], "Output",
+ CellChangeTimes->{3.748019773780196*^9, 3.748019864394644*^9, 
+  3.7480200615568447`*^9},ExpressionUUID->"f4871686-d652-4ba8-86cc-\
+eb66647bdcb7"],
+
+Cell[BoxData["\<\"net2.Fixed11.2Export-0000.params\"\>"], "Output",
+ CellChangeTimes->{3.748019773780196*^9, 3.748019864394644*^9, 
+  3.7480200615609694`*^9},ExpressionUUID->"4cbd9635-5996-4840-a43f-\
+14dc74c114cc"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1858, 1492},
+WindowMargins->{{Automatic, 778}, {0, Automatic}},
+Magnification:>2. Inherited,
+FrontEndVersion->"11.2 for Linux x86 (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 132, 3, 139, "Chapter",ExpressionUUID->"23bf6df9-5dbc-4d87-a7c3-842560117eef"],
+Cell[CellGroupData[{
+Cell[737, 29, 604, 12, 147, "Input",ExpressionUUID->"7f264ccd-6af5-4524-92b6-06c9f762a2cd"],
+Cell[1344, 43, 204, 4, 102, "Output",ExpressionUUID->"95c65ffd-3548-46bb-b206-e9e87cd11058"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1597, 53, 236, 4, 139, "Chapter",ExpressionUUID->"93db69b2-4f85-45fd-81ef-115bafe567d0"],
+Cell[CellGroupData[{
+Cell[1858, 61, 1630, 37, 440, "Input",ExpressionUUID->"7de80479-82aa-42b9-9f44-979d430f65ad"],
+Cell[3491, 100, 4315, 94, 280, "Output",ExpressionUUID->"f32d7a7a-bb9e-49ca-bebb-62c28c9eb6aa"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7843, 199, 3799, 84, 1004, "Input",ExpressionUUID->"27112167-9d0b-461f-9f88-2e9a9589b967"],
+Cell[11645, 285, 9253, 186, 408, "Output",ExpressionUUID->"42db3b12-d2bd-461a-bab9-bc304b0c3dba"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20935, 476, 628, 16, 63, "Input",ExpressionUUID->"ba4d8133-5eb1-4120-8afc-4257c98f0cf8"],
+Cell[21566, 494, 530, 11, 102, "Output",ExpressionUUID->"cb242326-b8fc-4db2-a548-72d6a35af2d6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22133, 510, 564, 14, 63, "Input",ExpressionUUID->"19d707b5-75b5-424a-9aa3-37ffb1de417a"],
+Cell[22700, 526, 529, 12, 102, "Output",ExpressionUUID->"1d76d466-4368-4c58-a3db-cd732c9e5313"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23278, 544, 184, 4, 139, "Chapter",ExpressionUUID->"1d236d70-5b74-48d7-8339-ecd9a278734f"],
+Cell[CellGroupData[{
+Cell[23487, 552, 1243, 28, 259, "Input",ExpressionUUID->"477ccd3f-f347-4495-a83e-15fbf1622eec"],
+Cell[24733, 582, 209, 3, 102, "Output",ExpressionUUID->"465b8cb7-8c98-46ca-9824-f82259b98757"],
+Cell[24945, 587, 211, 3, 102, "Output",ExpressionUUID->"b2da2882-2ccb-4a91-b023-fcd7fd3a760c"],
+Cell[25159, 592, 215, 3, 102, "Output",ExpressionUUID->"f4871686-d652-4ba8-86cc-eb66647bdcb7"],
+Cell[25377, 597, 215, 3, 102, "Output",ExpressionUUID->"4cbd9635-5996-4840-a43f-14dc74c114cc"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

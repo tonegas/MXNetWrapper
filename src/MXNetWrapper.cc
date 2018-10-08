@@ -93,16 +93,16 @@ std::vector<mx_float> MXNetWrapper::fordward(std::vector<std::vector<mx_float>> 
 {
     // Set Input
 //            std::vector<mx_float> inputT = {1.2,2.0,3.1};
-    for (int i = 0; i < num_input_nodes ;i++){
+    for (int j = 0; j < num_input_nodes ;j++){
         D(
-            float* r = input[i].data();
-            cout << "Input " << i << " data(" << input[i].size() << "): [" << r[0];
-            for(int i = 1; i < input[i].size(); i++) {
+            float* r = input[j].data();
+            cout << "Input " << j << " data(" << input[j].size() << "): [" << r[0];
+            for(int i = 1; i < input[j].size(); i++) {
                 cout  << ',' << r[i];
             }
             cout << "]\n";
         )
-        MXPredSetInput(net, input_keys[i], input[i].data(), input[i].size());
+        MXPredSetInput(net, input_keys[j], input[j].data(), input[j].size());
     }
 
     // Do Predict Forward

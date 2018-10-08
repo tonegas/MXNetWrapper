@@ -1,20 +1,22 @@
-# MXNetWrapper
-MXNet wrapper c++ for loading your network
+## MXNetWrapper
+MXNet c++ wrapper
 
 # Setup
-1. Go in src dir
-2. Edit the Makefile at line 28 choosing the mxnet installation folder
-3. Run make
+1. Edit the Makefile at line 28 choosing the mxnet installation folder
+2. Run make
 
 # The class Wrapper
-The class is a simple Wrapper of c_predict_api
+The class is a simple Wrapper of c_predict_api.
 It makes easy to load end execute a custom network.
 
-# Example of use src/main.cpp
-The example is in the src/main.cpp file.
-The example shows a problem of loading a network created and exported by Mathematica.
+# Example of use
+An example of use is in the test/main.cpp file.
+The example shows how to load different networks.
 
-# Export networks using Mathematica
-Due to a bug in the Mathematica export, the network files in the MXNet standard are not totally compliant with the standard MXNet.
-To avoid problems both in python or in c++ to load a network generated in Mathematica
-you must use the code reported in networks/MXNet_ExportFix.nb in the repository.
+# Export networks from Mathematica
+The c++ api of MXNet work slightly differently from the python api,
+therefore it needs that all the keys in the binary file .params generated during the export,
+start with "arg:" string; meanwhile the api python of MXNet no needs this.
+To avoid the loading fail, you need to use an workaround to export a network from
+Mathematica (both 11.2 or 11.3). The functions is in MXNetExportFix.11.2.wl for Mathematica 11.2
+and MXNetExportFix.11.3.wl for Mathematica 11.3.
