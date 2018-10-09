@@ -29,7 +29,7 @@ int main(int argc, char* argv[]){
 // }
 //
 // net_classes::MXNetWrapper net = net_classes::MXNetWrapper((std::string)"networks/Inception-BN", num_input_nodes_in, input_key, input_shape_indptr, input_shape_data);
-// net.fordward(vett_float);
+// net.forward(vett_float);
 
 //------------------------------------------------------------------------------
 //---------------------- First net 1 Input 1 Output ----------------------------
@@ -45,21 +45,21 @@ int main(int argc, char* argv[]){
 
     //!!!!!!!!!!!!!!Error
     //net_classes::MXNetWrapper net1_112_standard = net_classes::MXNetWrapper((std::string)"networks/net1.Standard11.2Export", num_input_nodes_in, input_key, input_shape_indptr, input_shape_data);
-    //net1_112_standard.fordward(vett_in);
+    //net1_112_standard.forward(vett_in);
     //!!!!!!!!!!!!!!Error
 
     net_classes::MXNetWrapper net1_112_fixed = net_classes::MXNetWrapper((std::string)"networks/net1.Fixed11.2Export", num_input_nodes_in1, input_key1, input_shape_indptr1, input_shape_data1);
-    net1_112_fixed.fordward(vett_In);
+    net1_112_fixed.forward(vett_In);
 
     //!!!!!!!!!!!!!!Error
     //net_classes::MXNetWrapper net1_113_standard = net_classes::MXNetWrapper((std::string)"networks/net1.Standard11.3Export", num_input_nodes_in, input_key, input_shape_indptr, input_shape_data);
-    //net1_113_standard.fordward(vett_in);
+    //net1_113_standard.forward(vett_in);
     //!!!!!!!!!!!!!!Error
 
     const char* input_key11[1] = {".Inputs.myIn"};
 
     net_classes::MXNetWrapper net1_113_fixed = net_classes::MXNetWrapper((std::string)"networks/net1.Fixed11.3Export", num_input_nodes_in1, input_key11, input_shape_indptr1, input_shape_data1);
-    net1_113_fixed.fordward(vett_In);
+    net1_113_fixed.forward(vett_In);
 
 //------------------------------------------------------------------------------
 //---------------------- First net 2 Input 2 Output ----------------------------
@@ -87,23 +87,23 @@ int main(int argc, char* argv[]){
 
     //!!!!!!!!!!!!!!Error
     //net_classes::MXNetWrapper net2_112_standard = net_classes::MXNetWrapper((std::string)"networks/net2.Standard11.2Export", num_input_nodes_in2, input_key2, input_shape_indptr2, input_shape_data2);
-    //net2_112_standard.fordward(vett_In12,0);
-    //net2_112_standard.fordward(vett_In12,1);
+    //net2_112_standard.forward(vett_In12,0);
+    //net2_112_standard.forward(vett_In12,1);
     //!!!!!!!!!!!!!!Error
 
     net_classes::MXNetWrapper net2_112_fixed = net_classes::MXNetWrapper((std::string)"networks/net2.Fixed11.2Export", num_input_nodes_in2, input_key2, input_shape_indptr2, input_shape_data2);
-    net2_112_fixed.fordward(vett_In12,0);
-    net2_112_fixed.fordward(vett_In12,1);
+    net2_112_fixed.forward(vett_In12,0);
+    net2_112_fixed.forward(vett_In12,1);
 
     //!!!!!!!!!!!!!!Error
     //net_classes::MXNetWrapper net2_113_standard = net_classes::MXNetWrapper((std::string)"networks/net2.Standard11.3Export", num_input_nodes_in2, input_key2, input_shape_indptr2, input_shape_data2);
-    //net2_113_standard.fordward(vett_In12,0);
-    //net2_113_standard.fordward(vett_In12,1);
+    //net2_113_standard.forward(vett_In12,0);
+    //net2_113_standard.forward(vett_In12,1);
     //!!!!!!!!!!!!!!Error
 
     const char* input_key21[] = {".Inputs.myIn1",".Inputs.myIn2"};
     net_classes::MXNetWrapper net2_113_fixed = net_classes::MXNetWrapper((std::string)"networks/net2.Fixed11.3Export", num_input_nodes_in2, input_key21, input_shape_indptr2, input_shape_data2);
-    net2_113_fixed.fordward(vett_In12,0);
-    net2_113_fixed.fordward(vett_In12,1);
+    net2_113_fixed.forward(vett_In12,0);
+    net2_113_fixed.forward(vett_In12,1);
 
 }

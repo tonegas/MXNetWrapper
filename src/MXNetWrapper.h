@@ -41,7 +41,7 @@ namespace net_classes {
     public:
         MXNetWrapper(std::string net_name_str, mx_uint num_input_nodes_in, const char* input_key_in[], const mx_uint input_shape_indptr[], const mx_uint input_shape_data[]);
 
-        std::vector<mx_float> fordward(std::vector<std::vector<mx_float>> input, mx_uint output_index = 0);
+        std::vector<mx_float> forward(std::vector<std::vector<mx_float>> input, mx_uint output_index = 0);
 
         mx_uint getOutDim(mx_uint output_index, mx_uint *&shape, mx_uint *shape_len);
 

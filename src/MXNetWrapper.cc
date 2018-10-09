@@ -89,7 +89,7 @@ MXNetWrapper::MXNetWrapper(
     D(std::cout << "Network Created: " << net_name_str << "\n";)
 }
 
-std::vector<mx_float> MXNetWrapper::fordward(std::vector<std::vector<mx_float>> input, mx_uint output_index)
+std::vector<mx_float> MXNetWrapper::forward(std::vector<std::vector<mx_float>> input, mx_uint output_index)
 {
     // Set Input
 //            std::vector<mx_float> inputT = {1.2,2.0,3.1};
