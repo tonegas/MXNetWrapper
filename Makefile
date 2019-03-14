@@ -27,7 +27,8 @@ ENABLE_DEBUG = -DDEBUG=1
 # MXNet
 MXNET_DIR = incubator-mxnet
 MXNET_INCLUDE_DIR = $(MXNET_DIR)/include/
-MXNET_LIB = $(MXNET_DIR)/lib/libmxnet.so
+MXNET_LIB = $(MXNET_DIR)/lib/
+
 # PYTHON MXNet
 #MXNET_DIR = incubator-mxnet
 #MXNET_INCLUDE_DIR = $(MXNET_DIR)/include/
@@ -68,9 +69,9 @@ endif
 
 # Define any libraries to link into executable
 ifeq ($(OS), Darwin)
-LIBS = -llm
+LIBS = -lmxnet
 else ifeq ($(OS), Linux)
-LIBS = -llm
+LIBS = -lmxnet
 endif
 
 # Define any directories containing header files other than /usr/include
@@ -90,7 +91,7 @@ mxnet:
 	$(CD) $(MXNET_DIR); make USE_OPENCV=0
 
 test: $(OBJS)
-	$(CC) $(ARCHFLAGS) $(CFLAGS) $(LDFLAGS) $(INCLUDES) $(ENABLE_DEBUG) $(TEST_DIR)/main.cpp -o $(TEST_DIR)/test $(OBJS) $(LFLAGS) $(MXNET_LIB)
+	$(CC) $(ARCHFLAGS) $(CFLAGS) $(LDFLAGS) $(INCLUDES) $(ENABLE_DEBUG) $(TEST_DIR)/main.cpp -o $(TEST_DIR)/test $(OBJS) $(LFLAGS) $(LIBS) -Wl,-rpath,incubator-mxnet/lib/
 
 .cc.o:
 	$(CC) $(ARCHFLAGS) $(CFLAGS) $(LDFLAGS) $(INCLUDES) $(ENABLE_DEBUG) -c $<  -o $@

@@ -106,4 +106,32 @@ int main(int argc, char* argv[]){
     net2_113_fixed.forward(vett_In12,0);
     net2_113_fixed.forward(vett_In12,1);
 
+//------------------------------------------------------------------------------
+//-------------------------- Python network test -------------------------------
+//------------------------------------------------------------------------------
+
+    //----------------------------------------------------------
+    mx_uint num_input_nodes_in3 = 1;
+    const char* input_key3[] = {"/in1"};
+    const mx_uint input_shape_indptr3[] = {
+            0, //Index of the first dimension numbers of the first input in the vector input_shape_data2
+            2  //Size of the vector input_shape_data2
+    };
+    const mx_uint input_shape_data3[] = {
+            2, // Number of Examples of first input
+            2, // First dimensions of the first input
+    };
+    std::vector<std::vector<mx_float>> vett_In3= {{3.0,1.0,2.0,3.0}};
+    //----------------------------------------------------------
+
+    net_classes::MXNetWrapper net_python = net_classes::MXNetWrapper((std::string)"networks/test", num_input_nodes_in3, input_key3, input_shape_indptr3, input_shape_data3);
+    net_python.forward(vett_In3);
+
+    //
+    // Output from jupyter must to be equal
+    //
+    //array([[0.97623456, 0.0951068 ],
+    //       [0.98618984, 0.01406655]], dtype=float32)
+    //
+
 }
