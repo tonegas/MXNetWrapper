@@ -1,6 +1,15 @@
 ## MXNetWrapper
 MXNet c++ wrapper
 
+# Presetup
+1.
+2. sudo apt install virtualenv
+3. virtualenv --python=/usr/bin/python3 .mxnet
+4. pip3 install --upgrade pip
+5. pip install ipython
+6. pip install jupyter
+7. pip install keras keras-mxnet
+
 # Setup
 1. Edit the Makefile at line 28 choosing the mxnet installation folder
 2. Run make
